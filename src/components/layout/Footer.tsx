@@ -45,7 +45,13 @@ const Footer = () => {
                 to="/services"
                 className="text-footer-foreground text-sm hover:text-green-accent transition-colors"
               >
-                What We Offer
+                Services
+              </Link>
+              <Link
+                to="/events"
+                className="text-footer-foreground text-sm hover:text-green-accent transition-colors"
+              >
+                Events & Gallery
               </Link>
               <Link
                 to="/contact"
