@@ -42,10 +42,10 @@ const Footer = () => {
                 About Us
               </Link>
               <Link
-                to="/services"
+                to="/products"
                 className="text-footer-foreground text-sm hover:text-green-accent transition-colors"
               >
-                Services
+                Products
               </Link>
               <Link
                 to="/events"
