@@ -10,32 +10,38 @@ const laptops = [
   {
     name: "Lenovo ThinkPad T480",
     specs: "Intel Core i5, 16GB RAM, 512GB SSD",
-    price: "₹28,500",
+    originalPrice: "₹48,000",
+    discountedPrice: "₹28,500",
   },
   {
     name: "HP EliteBook 840 G5",
     specs: "Intel Core i7, 16GB RAM, 256GB SSD",
-    price: "₹32,000",
+    originalPrice: "₹55,000",
+    discountedPrice: "₹32,000",
   },
   {
     name: "Dell Latitude 5490",
     specs: "Intel Core i5, 8GB RAM, 256GB SSD",
-    price: "₹24,000",
+    originalPrice: "₹42,000",
+    discountedPrice: "₹24,000",
   },
   {
     name: "Lenovo ThinkPad X1 Carbon",
     specs: "Intel Core i7, 16GB RAM, 512GB SSD",
-    price: "₹45,000",
+    originalPrice: "₹85,000",
+    discountedPrice: "₹45,000",
   },
   {
     name: "HP ProBook 450 G6",
     specs: "Intel Core i5, 8GB RAM, 500GB HDD",
-    price: "₹22,000",
+    originalPrice: "₹38,000",
+    discountedPrice: "₹22,000",
   },
   {
     name: "Dell Inspiron 15 5000",
     specs: "AMD Ryzen 5, 8GB RAM, 512GB SSD",
-    price: "₹26,500",
+    originalPrice: "₹45,000",
+    discountedPrice: "₹26,500",
   },
 ];
 
@@ -67,12 +73,13 @@ const Laptops = () => {
       <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {laptops.map((laptop) => (
+{laptops.map((laptop) => (
               <ProductCard
                 key={laptop.name}
                 name={laptop.name}
                 specs={laptop.specs}
-                price={laptop.price}
+                originalPrice={laptop.originalPrice}
+                discountedPrice={laptop.discountedPrice}
                 whatsappNumber={WHATSAPP_NUMBER}
               />
             ))}
