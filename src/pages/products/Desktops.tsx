@@ -3,6 +3,11 @@ import { ArrowLeft } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/products/ProductCard";
 
+// Product images
+import desktopHp from "@/assets/products/desktop-hp.jpg";
+import desktopDell from "@/assets/products/desktop-dell.jpg";
+import desktopLenovo from "@/assets/products/desktop-lenovo.jpg";
+
 // WhatsApp number for enquiries (without + or spaces)
 const WHATSAPP_NUMBER = "919876543210";
 
@@ -12,36 +17,42 @@ const desktops = [
     specs: "Intel Core i5, 8GB RAM, 500GB HDD",
     originalPrice: "₹32,000",
     discountedPrice: "₹18,500",
+    image: desktopHp,
   },
   {
     name: "Dell OptiPlex 5060",
     specs: "Intel Core i7, 16GB RAM, 256GB SSD",
     originalPrice: "₹42,000",
     discountedPrice: "₹24,000",
+    image: desktopDell,
   },
   {
     name: "Lenovo ThinkCentre M920",
     specs: "Intel Core i5, 8GB RAM, 256GB SSD",
     originalPrice: "₹35,000",
     discountedPrice: "₹20,000",
+    image: desktopLenovo,
   },
   {
     name: "HP EliteDesk 800 G4",
     specs: "Intel Core i7, 16GB RAM, 512GB SSD",
     originalPrice: "₹52,000",
     discountedPrice: "₹28,500",
+    image: desktopHp,
   },
   {
     name: "Dell OptiPlex 3070",
     specs: "Intel Core i3, 8GB RAM, 256GB SSD",
     originalPrice: "₹25,000",
     discountedPrice: "₹14,000",
+    image: desktopDell,
   },
   {
     name: "Lenovo ThinkCentre M720",
     specs: "Intel Core i5, 8GB RAM, 1TB HDD",
     originalPrice: "₹28,000",
     discountedPrice: "₹16,500",
+    image: desktopLenovo,
   },
 ];
 
@@ -73,13 +84,14 @@ const Desktops = () => {
       <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-{desktops.map((desktop) => (
+            {desktops.map((desktop) => (
               <ProductCard
                 key={desktop.name}
                 name={desktop.name}
                 specs={desktop.specs}
                 originalPrice={desktop.originalPrice}
                 discountedPrice={desktop.discountedPrice}
+                image={desktop.image}
                 whatsappNumber={WHATSAPP_NUMBER}
               />
             ))}

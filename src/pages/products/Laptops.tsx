@@ -3,6 +3,11 @@ import { ArrowLeft } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/products/ProductCard";
 
+// Product images
+import laptopThinkpad from "@/assets/products/laptop-thinkpad.jpg";
+import laptopHp from "@/assets/products/laptop-hp.jpg";
+import laptopDell from "@/assets/products/laptop-dell.jpg";
+
 // WhatsApp number for enquiries (without + or spaces)
 const WHATSAPP_NUMBER = "919876543210";
 
@@ -12,36 +17,42 @@ const laptops = [
     specs: "Intel Core i5, 16GB RAM, 512GB SSD",
     originalPrice: "₹48,000",
     discountedPrice: "₹28,500",
+    image: laptopThinkpad,
   },
   {
     name: "HP EliteBook 840 G5",
     specs: "Intel Core i7, 16GB RAM, 256GB SSD",
     originalPrice: "₹55,000",
     discountedPrice: "₹32,000",
+    image: laptopHp,
   },
   {
     name: "Dell Latitude 5490",
     specs: "Intel Core i5, 8GB RAM, 256GB SSD",
     originalPrice: "₹42,000",
     discountedPrice: "₹24,000",
+    image: laptopDell,
   },
   {
     name: "Lenovo ThinkPad X1 Carbon",
     specs: "Intel Core i7, 16GB RAM, 512GB SSD",
     originalPrice: "₹85,000",
     discountedPrice: "₹45,000",
+    image: laptopThinkpad,
   },
   {
     name: "HP ProBook 450 G6",
     specs: "Intel Core i5, 8GB RAM, 500GB HDD",
     originalPrice: "₹38,000",
     discountedPrice: "₹22,000",
+    image: laptopHp,
   },
   {
     name: "Dell Inspiron 15 5000",
     specs: "AMD Ryzen 5, 8GB RAM, 512GB SSD",
     originalPrice: "₹45,000",
     discountedPrice: "₹26,500",
+    image: laptopDell,
   },
 ];
 
@@ -73,13 +84,14 @@ const Laptops = () => {
       <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-{laptops.map((laptop) => (
+            {laptops.map((laptop) => (
               <ProductCard
                 key={laptop.name}
                 name={laptop.name}
                 specs={laptop.specs}
                 originalPrice={laptop.originalPrice}
                 discountedPrice={laptop.discountedPrice}
+                image={laptop.image}
                 whatsappNumber={WHATSAPP_NUMBER}
               />
             ))}
