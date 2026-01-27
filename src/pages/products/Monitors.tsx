@@ -10,32 +10,38 @@ const monitors = [
   {
     name: "Dell UltraSharp U2419H",
     specs: "24 inch, Full HD, IPS Panel",
-    price: "₹8,500",
+    originalPrice: "₹18,000",
+    discountedPrice: "₹8,500",
   },
   {
     name: "HP EliteDisplay E243",
     specs: "24 inch, Full HD, LED Backlit",
-    price: "₹7,800",
+    originalPrice: "₹16,500",
+    discountedPrice: "₹7,800",
   },
   {
     name: "Lenovo ThinkVision T24i",
     specs: "24 inch, Full HD, IPS Panel",
-    price: "₹7,500",
+    originalPrice: "₹15,000",
+    discountedPrice: "₹7,500",
   },
   {
     name: "Dell P2419H",
     specs: "24 inch, Full HD, LED Monitor",
-    price: "₹6,800",
+    originalPrice: "₹14,000",
+    discountedPrice: "₹6,800",
   },
   {
     name: "HP Z24n G2",
     specs: "24 inch, WUXGA, IPS Panel",
-    price: "₹9,200",
+    originalPrice: "₹22,000",
+    discountedPrice: "₹9,200",
   },
   {
     name: "Dell UltraSharp U2717D",
     specs: "27 inch, QHD, IPS Panel",
-    price: "₹14,500",
+    originalPrice: "₹32,000",
+    discountedPrice: "₹14,500",
   },
 ];
 
@@ -67,12 +73,13 @@ const Monitors = () => {
       <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {monitors.map((monitor) => (
+{monitors.map((monitor) => (
               <ProductCard
                 key={monitor.name}
                 name={monitor.name}
                 specs={monitor.specs}
-                price={monitor.price}
+                originalPrice={monitor.originalPrice}
+                discountedPrice={monitor.discountedPrice}
                 whatsappNumber={WHATSAPP_NUMBER}
               />
             ))}

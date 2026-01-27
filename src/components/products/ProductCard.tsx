@@ -3,16 +3,17 @@ import { MessageCircle } from "lucide-react";
 interface ProductCardProps {
   name: string;
   specs: string;
-  price?: string;
+  originalPrice?: string;
+  discountedPrice?: string;
   image?: string;
   whatsappNumber: string;
 }
 
-const ProductCard = ({ name, specs, price, image, whatsappNumber }: ProductCardProps) => {
+const ProductCard = ({ name, specs, originalPrice, discountedPrice, image, whatsappNumber }: ProductCardProps) => {
   const generateWhatsAppLink = () => {
     let message = `Hi, I'm interested in the ${name} (${specs}).`;
-    if (price) {
-      message += ` Listed price: ${price}.`;
+    if (discountedPrice) {
+      message += ` Listed price: ${discountedPrice}.`;
     }
     message += " Please share more details.";
     
@@ -42,8 +43,15 @@ const ProductCard = ({ name, specs, price, image, whatsappNumber }: ProductCardP
         <h3 className="text-lg font-bold text-foreground mb-2">{name}</h3>
         <p className="text-muted-foreground text-sm mb-3 flex-1">{specs}</p>
         
-        {price && (
-          <p className="text-green-accent font-semibold text-lg mb-4">{price}</p>
+        {(originalPrice || discountedPrice) && (
+          <div className="mb-4 flex items-center gap-3">
+            {originalPrice && (
+              <span className="text-destructive line-through text-base">{originalPrice}</span>
+            )}
+            {discountedPrice && (
+              <span className="text-green-accent font-bold text-xl">{discountedPrice}</span>
+            )}
+          </div>
         )}
 
         <a

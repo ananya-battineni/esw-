@@ -10,32 +10,38 @@ const desktops = [
   {
     name: "HP ProDesk 400 G5",
     specs: "Intel Core i5, 8GB RAM, 500GB HDD",
-    price: "₹18,500",
+    originalPrice: "₹32,000",
+    discountedPrice: "₹18,500",
   },
   {
     name: "Dell OptiPlex 5060",
     specs: "Intel Core i7, 16GB RAM, 256GB SSD",
-    price: "₹24,000",
+    originalPrice: "₹42,000",
+    discountedPrice: "₹24,000",
   },
   {
     name: "Lenovo ThinkCentre M920",
     specs: "Intel Core i5, 8GB RAM, 256GB SSD",
-    price: "₹20,000",
+    originalPrice: "₹35,000",
+    discountedPrice: "₹20,000",
   },
   {
     name: "HP EliteDesk 800 G4",
     specs: "Intel Core i7, 16GB RAM, 512GB SSD",
-    price: "₹28,500",
+    originalPrice: "₹52,000",
+    discountedPrice: "₹28,500",
   },
   {
     name: "Dell OptiPlex 3070",
     specs: "Intel Core i3, 8GB RAM, 256GB SSD",
-    price: "₹14,000",
+    originalPrice: "₹25,000",
+    discountedPrice: "₹14,000",
   },
   {
     name: "Lenovo ThinkCentre M720",
     specs: "Intel Core i5, 8GB RAM, 1TB HDD",
-    price: "₹16,500",
+    originalPrice: "₹28,000",
+    discountedPrice: "₹16,500",
   },
 ];
 
@@ -67,12 +73,13 @@ const Desktops = () => {
       <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {desktops.map((desktop) => (
+{desktops.map((desktop) => (
               <ProductCard
                 key={desktop.name}
                 name={desktop.name}
                 specs={desktop.specs}
-                price={desktop.price}
+                originalPrice={desktop.originalPrice}
+                discountedPrice={desktop.discountedPrice}
                 whatsappNumber={WHATSAPP_NUMBER}
               />
             ))}
