@@ -21,13 +21,19 @@ const Header = () => {
     <header className="bg-header sticky top-0 z-50">
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
+          
+          {/* Logo + Brand */}
+          <Link to="/" className="flex items-center gap-4">
             <img
               src={logo}
               alt="E Swachha Green Tech Solutions"
               className="h-16 w-auto"
             />
+
+            <span className="text-xl font-semibold text-header-foreground">
+              <span className="text-green-accent">E Swachha</span>{" "}
+              Green Tech Solutions
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -36,7 +42,7 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors duration-200 ${
+                className={`text-sm font-medium transition-colors ${
                   isActive(link.path)
                     ? "text-green-accent"
                     : "text-header-foreground hover:text-green-accent"
@@ -47,10 +53,10 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button - Desktop */}
+          {/* CTA Button */}
           <Link
             to="/contact"
-            className="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-green-accent text-header rounded-md font-medium text-sm hover:bg-green-accent-hover transition-colors duration-200"
+            className="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-green-accent text-header rounded-md font-medium text-sm hover:bg-green-accent-hover transition-colors"
           >
             Get in Touch
           </Link>
@@ -74,7 +80,7 @@ const Header = () => {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors duration-200 py-2 ${
+                  className={`text-sm font-medium py-2 ${
                     isActive(link.path)
                       ? "text-green-accent"
                       : "text-header-foreground hover:text-green-accent"
@@ -83,10 +89,11 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
+
               <Link
                 to="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="inline-flex items-center justify-center px-6 py-2.5 bg-green-accent text-header rounded-md font-medium text-sm hover:bg-green-accent-hover transition-colors duration-200 mt-2"
+                className="inline-flex items-center justify-center px-6 py-2.5 bg-green-accent text-header rounded-md font-medium text-sm hover:bg-green-accent-hover transition-colors mt-2"
               >
                 Get in Touch
               </Link>

@@ -71,8 +71,8 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-green-accent flex-shrink-0 mt-0.5" />
                 <span className="text-footer-foreground text-sm">
-                  123 Tech Park, Industrial Area<br />
-                  Bengaluru, Karnataka 560001
+                  No 721 1st F cross 3rd stage , 4th Block ,15th Main<br />
+                  Basaveshwaranagar, Bengaluru - 560079
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -81,16 +81,16 @@ const Footer = () => {
                   href="tel:+919876543210"
                   className="text-footer-foreground text-sm hover:text-green-accent transition-colors"
                 >
-                  +91 98765 43210
+                  +91 94822 72449
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-green-accent flex-shrink-0" />
                 <a
-                  href="mailto:info@eswachha.com"
+                  href="mailto:eswachhagreentech@gmail.com"
                   className="text-footer-foreground text-sm hover:text-green-accent transition-colors"
                 >
-                  info@eswachha.com
+                  eswachhagreentech@gmail.com
                 </a>
               </div>
             </div>

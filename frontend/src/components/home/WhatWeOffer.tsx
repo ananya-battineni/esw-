@@ -8,12 +8,7 @@ const offerings = [
     description:
       "High-performance computers tested and certified for reliable everyday use.",
   },
-  {
-    icon: Smartphone,
-    title: "Refurbished Mobile Devices",
-    description:
-      "Quality smartphones and tablets with thorough functionality verification.",
-  },
+  
   {
     icon: ClipboardCheck,
     title: "Quality Testing & Certification",
@@ -44,10 +39,10 @@ const WhatWeOffer = () => {
             </p>
           </div>
           <Link
-            to="/services"
+            to="/products"
             className="inline-flex items-center gap-2 text-green-accent font-semibold hover:gap-3 transition-all"
           >
-            View All Services
+            View All Products
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
