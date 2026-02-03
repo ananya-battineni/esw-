@@ -5,13 +5,14 @@ import ProductCard from "@/components/products/ProductCard";
 import { useEffect, useState } from "react";
 
 const WHATSAPP_NUMBER = "919482272449";
+import { API_URL } from "@/config/api";
 
 const Desktops = () => {
   const [desktops, setDesktops] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/products")
+    fetch(`${API_URL}/products`)
       .then((res) => res.json())
       .then((data) => {
         const desktopProducts = data.filter(
@@ -25,6 +26,8 @@ const Desktops = () => {
       })
       .catch(() => setLoading(false));
   }, []);
+
+
 
   return (
     <Layout>

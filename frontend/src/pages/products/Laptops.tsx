@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/products/ProductCard";
 import { useEffect, useState } from "react";
+import { API_URL } from "@/config/api";
 
 const WHATSAPP_NUMBER = "919482272449";
 
@@ -11,7 +12,7 @@ const Laptops = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/products")
+    fetch(`${API_URL}/products`)
       .then((res) => res.json())
       .then((data) => {
         const laptopProducts = data.filter(
@@ -28,6 +29,8 @@ const Laptops = () => {
         setLoading(false);
       });
   }, []);
+
+
 
   return (
     <Layout>
