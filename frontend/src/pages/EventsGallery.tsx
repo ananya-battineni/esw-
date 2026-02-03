@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
+import { API_URL } from "@/config/api";
 
 type Event = {
   slug: string;
@@ -13,18 +14,25 @@ const EventsGallery = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/events")
-      .then((res) => res.json())
-      .then((data) => {
-        setEvents(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Failed to fetch events:", err);
-        setLoading(false);
-      });
-  }, []);
+  
+useEffect(() => {
+  fetch(`${API_URL}/events`)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch events");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      setEvents(data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.error("Failed to fetch events:", err);
+      setLoading(false);
+    });
+}, []);
+
 
   return (
     <Layout>

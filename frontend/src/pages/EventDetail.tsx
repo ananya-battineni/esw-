@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
-
+import { API_URL } from "@/config/api";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,23 +23,27 @@ const EventDetail = () => {
   const [event, setEvent] = useState<Event | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!slug) return;
+useEffect(() => {
+  if (!slug) return;
 
-    fetch(`http://127.0.0.1:8000/events/${slug}`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Event not found");
-        return res.json();
-      })
-      .then((data) => {
-        setEvent(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setEvent(null);
-        setLoading(false);
-      });
-  }, [slug]);
+  const fetchEvent = async () => {
+    try {
+      const res = await fetch(`${API_URL}/events/${slug}`);
+      if (!res.ok) {
+        throw new Error("Event not found");
+      }
+      const data = await res.json();
+      setEvent(data);
+    } catch (err) {
+      console.error("Failed to fetch event:", err);
+      setEvent(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchEvent();
+}, [slug]);
 
   // Loading state
   if (loading) {
