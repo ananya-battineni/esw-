@@ -25,3 +25,6 @@ dist-ssr
 
 .env
 backend/.env
+# Python cache files
+__pycache__/
+*.pyc
