@@ -3,16 +3,18 @@ import { ArrowLeft } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/products/ProductCard";
 import { useEffect, useState } from "react";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const WHATSAPP_NUMBER = "919482272449";
 
-import { API_URL } from "@/config/api";
 
 const Monitors = () => {
   const [monitors, setMonitors] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    
+    console.log("VITE_API_URL =", API_URL);
     fetch(`${API_URL}/products`)
       .then((res) => res.json())
       .then((data) => {
