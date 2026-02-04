@@ -28,3 +28,6 @@ backend/.env
 # Python cache files
 __pycache__/
 *.pyc
+# Frontend environment variables
+frontend/.env
+.env.local
