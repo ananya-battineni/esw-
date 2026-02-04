@@ -1,3 +1,5 @@
+print("🔥🔥🔥 THIS IS THE REAL MAIN.PY RUNNING 🔥🔥🔥")
+
 import os
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
