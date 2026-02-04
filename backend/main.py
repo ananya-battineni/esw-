@@ -30,7 +30,7 @@ app.add_middleware(
         "https://esw-frontend.vercel.app"
         "https://esw-azure.vercel.app"
     ],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
