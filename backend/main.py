@@ -86,7 +86,7 @@ def get_event(slug: str):
 @app.post("/upload-image")
 async def upload_image(file: UploadFile = File(...)):
     result = cloudinary.uploader.upload(
-        file.file
+        file.file,
         format="jpg",      # force browser-compatible output
         quality="auto",
         fetch_format="auto"
