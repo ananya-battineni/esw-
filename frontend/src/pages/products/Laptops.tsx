@@ -32,32 +32,31 @@ const Laptops = () => {
 
 
 
+  
   return (
     <Layout>
       {/* Page Header */}
       <section className="bg-header py-16">
         <div className="container-custom">
-          <Link
-            to="/products"
-            className="inline-flex items-center gap-2 text-footer-foreground hover:text-green-accent mb-6"
+          <Link 
+            to="/products" 
+            className="inline-flex items-center gap-2 text-footer-foreground hover:text-green-accent transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Products
           </Link>
-
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold text-header-foreground mb-4">
               <span className="text-green-accent">Laptops</span>
             </h1>
             <p className="text-lg text-footer-foreground">
-              Browse our available refurbished laptops. Click “Contact on
-              WhatsApp” to enquire about any product.
+              Browse our available laptops. Click "Contact on WhatsApp" to enquire about any product.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Products Grid */}
+            {/* Products Grid */}
       <section className="section-padding bg-background">
         <div className="container-custom">
           {loading ? (
@@ -76,12 +75,14 @@ const Laptops = () => {
                 to={`/products/laptops/${laptop.slug}`}
               >
                <ProductCard
+                 key={laptop.slug}
                 name={laptop.name}
                 specs={laptop.specs}
                 originalPrice={laptop.originalPrice}
                 discountedPrice={laptop.discountedPrice}
-                image={laptop.galleryImages?.[0]}
+                image={laptop.image}
                 whatsappNumber={WHATSAPP_NUMBER}
+                 
                />
              </Link>
            ))}
@@ -96,12 +97,11 @@ const Laptops = () => {
       <section className="bg-muted py-12">
         <div className="container-custom text-center">
           <p className="text-muted-foreground mb-4">
-            Don’t see the laptop you’re looking for?  
-            Contact us with your requirements.
+            Don't see what you're looking for? Contact us with your requirements.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center px-6 py-3 bg-green-accent text-header rounded-md font-medium hover:bg-green-accent-hover transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 bg-green-accent text-header rounded-md font-medium hover:bg-green-accent-hover transition-colors duration-200"
           >
             Contact Us
           </Link>
