@@ -12,7 +12,7 @@ const Laptops = () => {
   const [laptops, setLaptops] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
 
    useEffect(() => {
      console.log("API =", API_BASE_URL);
