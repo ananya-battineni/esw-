@@ -9,12 +9,15 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Products from "./pages/Products";
 import Laptops from "./pages/products/Laptops";
+import LaptopDetail from "./pages/products/LaptopDetail";
 import Monitors from "./pages/products/Monitors";
 import Desktops from "./pages/products/Desktops";
 import EventsGallery from "./pages/EventsGallery";
 import EventDetail from "./pages/EventDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+
+
 
 const queryClient = new QueryClient();
 
@@ -30,6 +33,8 @@ const App = () => (
 
           <Route path="/products" element={<Products />} />
           <Route path="/products/laptops" element={<Laptops />} />
+          <Route path="/products/laptops/:slug" element={<LaptopDetail />} />
+
           <Route path="/products/monitors" element={<Monitors />} />
           <Route path="/products/desktops" element={<Desktops />} />
 
