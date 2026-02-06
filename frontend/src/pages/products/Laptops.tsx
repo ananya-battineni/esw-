@@ -22,7 +22,7 @@ const Laptops = () => {
             item.inStock === true
         );
 
-        setLaptops(laptopProducts);
+        setLaptops(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -72,20 +72,21 @@ const Laptops = () => {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {laptops.map((laptop) => (
-               <Link
-                 key={laptop.slug}
-                 to={`/products/laptops/${laptop.slug}`}
-                >
-              <ProductCard
-               name={laptop.name}
-               specs={laptop.specs}
-               originalPrice={laptop.originalPrice}
-               discountedPrice={laptop.discountedPrice}
-               image={laptop.imageUrl}
-               whatsappNumber={WHATSAPP_NUMBER}
-                />
-              </Link>
-            ))}
+              <Link
+                key={laptop.slug}
+                to={`/products/laptops/${laptop.slug}`}
+              >
+               <ProductCard
+                name={laptop.name}
+                specs={laptop.specs}
+                originalPrice={laptop.originalPrice}
+                discountedPrice={laptop.discountedPrice}
+                image={laptop.galleryImages?.[0]}
+                whatsappNumber={WHATSAPP_NUMBER}
+               />
+             </Link>
+           ))}
+
 
             </div>
           )}
