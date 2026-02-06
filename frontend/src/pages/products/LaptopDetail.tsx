@@ -51,58 +51,108 @@ const LaptopDetail = () => {
   }
 
   const generateWhatsAppLink = () => {
-    const message = `Hi, I'm interested in buying the ${laptop.name} (${laptop.specs}).`;
+    let message = `Hi, I'm interested in buying the ${laptop.name} (${laptop.specs}).`;
+    message += ` Listed price: ${laptop.discountedPrice}.`;
+    message += " Please share more details and availability.";
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
   return (
     <Layout>
+      {/* Header */}
       <section className="bg-header py-12">
         <div className="container-custom">
           <Link to="/products/laptops">
-            <Button variant="ghost" className="mb-6">
+            <Button
+              variant="ghost"
+              className="text-header-foreground hover:bg-white/10 mb-6"
+            >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Laptops
             </Button>
           </Link>
 
-          <h1 className="text-3xl font-bold">{laptop.name}</h1>
-          <p className="mt-2">{laptop.specs}</p>
+          <h1 className="text-3xl md:text-4xl font-bold text-header-foreground">
+            {laptop.name}
+          </h1>
+          <p className="text-footer-foreground mt-2">{laptop.specs}</p>
         </div>
       </section>
 
-      <section className="section-padding">
-        <div className="grid lg:grid-cols-2 gap-12 container-custom">
-          <Carousel
-            opts={{ loop: true }}
-            plugins={[Autoplay({ delay: 3500 })]}
-          >
-            <CarouselContent>
-              {laptop.galleryImages.map((img: string, i: number) => (
-                <CarouselItem key={i} className="basis-full">
-                  <img src={img} className="rounded-xl w-full h-full object-cover" />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+      {/* Content */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Carousel */}
+            <div>
+              <Carousel
+                className="w-full"
+                opts={{ loop: true, align: "start" }}
+                plugins={[
+                  Autoplay({
+                    delay: 3500,
+                    stopOnInteraction: false,
+                    stopOnMouseEnter: true,
+                  }),
+                ]}
+              >
+                <CarouselContent>
+                  {laptop.galleryImages.map((img: string, index: number) => (
+                    <CarouselItem key={index}>
+                      <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-section-light border border-border">
+                        <img
+                          src={img}
+                          alt={`${laptop.name} image ${index + 1}`}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
 
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">About this laptop</h2>
-            <p className="mb-6">{laptop.description}</p>
-
-            <div className="mb-6">
-              <span className="line-through mr-4">{laptop.originalPrice}</span>
-              <span className="text-3xl font-bold">{laptop.discountedPrice}</span>
+              <p className="text-sm text-muted-foreground text-center mt-3">
+                Images rotate automatically
+              </p>
             </div>
 
-            <a
-              href={generateWhatsAppLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3 bg-green-600 text-white rounded-lg"
-            >
-              <MessageCircle /> Contact for Buying
-            </a>
+            {/* Details */}
+            <div>
+              <h2 className="text-2xl font-semibold text-foreground mb-4">
+                About This Laptop
+              </h2>
+
+              <p className="text-muted-foreground leading-relaxed text-lg mb-6">
+                {laptop.description}
+              </p>
+
+              {/* Pricing */}
+              <div className="p-6 bg-section-light rounded-xl border border-border mb-6">
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-destructive line-through text-lg">
+                    {laptop.originalPrice}
+                  </span>
+                  <span className="text-green-accent font-bold text-3xl">
+                    {laptop.discountedPrice}
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Price includes warranty and quality assurance
+                </p>
+              </div>
+
+              {/* CTA */}
+              <a
+                href={generateWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-green-accent text-header rounded-lg font-semibold text-lg hover:bg-green-accent-hover transition-colors duration-200 w-full sm:w-auto"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Contact for Buying
+              </a>
+            </div>
           </div>
         </div>
       </section>
