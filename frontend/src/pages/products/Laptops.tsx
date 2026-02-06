@@ -80,7 +80,7 @@ const Laptops = () => {
                  specs={laptop.specs}
                  originalPrice={`₹${laptop.originalPrice}`}
                  discountedPrice={`₹${laptop.originalPrice}`}
-                 image={laptop.image}
+                 image={laptop.imageUrl}
                  whatsappNumber={WHATSAPP_NUMBER}
                  
                />
