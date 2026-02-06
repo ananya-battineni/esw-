@@ -13,7 +13,7 @@ const Laptops = () => {
 
   useEffect(() => {
     console.log("VITE_API_URL =", API_URL);
-    fetch(`${API_URL}/products`)
+    fetch(`${API_URL}/laptops`)
       .then((res) => res.json())
       .then((data) => {
         const laptopProducts = data.filter(
@@ -72,16 +72,21 @@ const Laptops = () => {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {laptops.map((laptop) => (
-                <ProductCard
-                  key={laptop.name}
-                  name={laptop.name}
-                  specs={laptop.specs}
-                  originalPrice={`₹${laptop.originalPrice}`}
-                  discountedPrice={`₹${laptop.discountedPrice}`}
-                  image={laptop.imageUrl}
-                  whatsappNumber={WHATSAPP_NUMBER}
+               <Link
+                 key={laptop.slug}
+                 to={`/products/laptops/${laptop.slug}`}
+                >
+              <ProductCard
+               name={laptop.name}
+               specs={laptop.specs}
+               originalPrice={laptop.originalPrice}
+               discountedPrice={laptop.discountedPrice}
+               image={laptop.imageUrl}
+               whatsappNumber={WHATSAPP_NUMBER}
                 />
-              ))}
+              </Link>
+            ))}
+
             </div>
           )}
         </div>
