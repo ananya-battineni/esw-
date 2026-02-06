@@ -76,12 +76,12 @@ const Laptops = () => {
               >
                <ProductCard
                  key={laptop.slug}
-                name={laptop.name}
-                specs={laptop.specs}
-                originalPrice={laptop.originalPrice}
-                discountedPrice={laptop.discountedPrice}
-                image={laptop.image}
-                whatsappNumber={WHATSAPP_NUMBER}
+                 name={laptop.name}
+                 specs={laptop.specs}
+                 originalPrice={`₹${laptop.originalPrice}`}
+                 discountedPrice={`₹${laptop.originalPrice}`}
+                 image={laptop.image}
+                 whatsappNumber={WHATSAPP_NUMBER}
                  
                />
              </Link>
