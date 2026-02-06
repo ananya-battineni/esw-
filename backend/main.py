@@ -40,6 +40,7 @@ db = client["eswachha"]
 
 products_collection = db["products"]
 events_collection = db["events"]   # ✅ for Events & Gallery
+laptops_collection = db["laptops"] 
 
 # --------------------------------------------------
 # Cloudinary configuration
@@ -81,6 +82,24 @@ def get_event(slug: str):
     return event
 
 # --------------------------------------------------
+# Laptops APIs (NEW)
+# --------------------------------------------------
+@app.get("/laptops")
+def get_laptops():
+    laptops = list(laptops_collection.find({}, {"_id": 0}))
+    return laptops
+
+
+@app.get("/laptops/{slug}")
+def get_laptop(slug: str):
+    laptop = laptops_collection.find_one({"slug": slug}, {"_id": 0})
+
+    if not laptop:
+        return {"error": "Laptop not found"}
+
+    return laptop
+
+# --------------------------------------------------
 # Image upload (Cloudinary)
 # --------------------------------------------------
 @app.post("/upload-image")
@@ -94,3 +113,5 @@ async def upload_image(file: UploadFile = File(...)):
     return {
         "imageUrl": result["secure_url"]
     }
+
+

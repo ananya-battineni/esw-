@@ -10,3 +10,4 @@ client = MongoClient(MONGO_URI)
 db = client["eswachha"]
 
 events_collection = db["events"]
+laptops_collection = db["laptops"] 
