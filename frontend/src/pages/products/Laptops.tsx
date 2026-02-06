@@ -3,7 +3,8 @@ import { ArrowLeft } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import ProductCard from "@/components/products/ProductCard";
 import { useEffect, useState } from "react";
-const API_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 const WHATSAPP_NUMBER = "919482272449";
 
@@ -11,25 +12,23 @@ const Laptops = () => {
   const [laptops, setLaptops] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    console.log("VITE_API_URL =", API_URL);
-    fetch(`${API_URL}/laptops`)
-      .then((res) => res.json())
-      .then((data) => {
-        const laptopProducts = data.filter(
-          (item: any) =>
-            item.category?.toLowerCase() === "laptop" &&
-            item.inStock === true
-        );
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
+   useEffect(() => {
+     console.log("API =", API_BASE_URL);
+
+     fetch(`${API_BASE_URL}/laptops`)
+       .then((res) => res.json())
+       .then((data) => {
         setLaptops(data);
         setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching products:", err);
-        setLoading(false);
-      });
-  }, []);
+       })
+       .catch((err) => {
+         console.error("Error fetching laptops:", err);
+         setLoading(false);
+       });
+   }, []);
+
 
 
 
