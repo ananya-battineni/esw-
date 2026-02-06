@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 const WHATSAPP_NUMBER = "919482272449";
 
 const LaptopDetail = () => {
