@@ -131,10 +131,10 @@ const LaptopDetail = () => {
               <div className="p-6 bg-section-light rounded-xl border border-border mb-6">
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-destructive line-through text-lg">
-                    {laptop.originalPrice}
+                    {`₹${laptop.originalPrice}`}
                   </span>
                   <span className="text-green-accent font-bold text-3xl">
-                    {laptop.discountedPrice}
+                    {`₹${laptop.originalPrice}`}
                   </span>
                 </div>
                 <p className="text-sm text-muted-foreground">
