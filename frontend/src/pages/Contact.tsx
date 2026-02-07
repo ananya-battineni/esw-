@@ -120,7 +120,7 @@ const Contact = () => {
               {/* Quick Actions */}
               <div className="mt-6 flex gap-4">
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/919482272449"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 text-center bg-green-accent text-header py-3 rounded-lg font-semibold hover:bg-green-accent-hover transition-colors"
@@ -129,7 +129,7 @@ const Contact = () => {
                 </a>
 
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919482272449"
                   className="flex-1 text-center border border-border py-3 rounded-lg font-semibold hover:bg-muted transition-colors"
                 >
                   Call Us
