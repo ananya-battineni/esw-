@@ -90,7 +90,7 @@ const LaptopDetail = () => {
                 opts={{ loop: true, align: "start" }}
                 plugins={[
                   Autoplay({
-                    delay: 3500,
+                    delay: 2000,
                     stopOnInteraction: false,
                     stopOnMouseEnter: true,
                   }),
@@ -123,9 +123,31 @@ const LaptopDetail = () => {
                 About This Laptop
               </h2>
 
-              <p className="text-muted-foreground leading-relaxed text-lg mb-6">
-                {laptop.description}
-              </p>
+              <ul className="list-disc pl-6 space-y-2 text-muted-foreground text-lg mb-6">
+                 {laptop.description
+                  .split("\n")
+                  .filter(Boolean)
+                  .map((line: string, index: number) => {
+                    const [label, ...rest] = line.split(":");
+
+                    return (
+                     <li key={index}>
+                      {rest.length > 0 ? (
+                        <>
+                         <span className="font-semibold text-foreground">
+                           {label}:
+                         </span>{" "}
+                         {rest.join(":").trim()}
+                      </>
+                     ) : (
+                       line
+                      )}
+                    </li>
+                  );
+                })}
+             </ul>
+
+
 
               {/* Pricing */}
               <div className="p-6 bg-section-light rounded-xl border border-border mb-6">
