@@ -8,6 +8,7 @@ console.log(import.meta.env.VITE_API_URL);
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Products from "./pages/Products";
+import ScrollToTop from "@/components/ScrollToTop";
 import Laptops from "./pages/products/Laptops";
 import LaptopDetail from "./pages/products/LaptopDetail";
 import Monitors from "./pages/products/Monitors";
@@ -27,6 +28,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
