@@ -36,6 +36,7 @@ const App = () => (
           <Route path="/products/laptops/:slug" element={<LaptopDetail />} />
 
           <Route path="/products/monitors" element={<Monitors />} />
+          
           <Route path="/products/desktops" element={<Desktops />} />
 
           <Route path="/events" element={<EventsGallery />} />

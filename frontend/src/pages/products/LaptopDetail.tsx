@@ -156,8 +156,9 @@ const LaptopDetail = () => {
                     {`₹${laptop.originalPrice}`}
                   </span>
                   <span className="text-green-accent font-bold text-3xl">
-                    {`₹${laptop.originalPrice}`}
+                    {`₹${laptop.discountedPrice}`}
                   </span>
+
                 </div>
                 <p className="text-sm text-muted-foreground">
                   Price includes warranty and quality assurance

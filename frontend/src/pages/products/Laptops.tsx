@@ -79,7 +79,8 @@ const Laptops = () => {
                  name={laptop.name}
                  specs={laptop.specs}
                  originalPrice={`₹${laptop.originalPrice}`}
-                 discountedPrice={`₹${laptop.originalPrice}`}
+                 discountedPrice={`₹${laptop.discountedPrice}`}
+
                  image={laptop.imageUrl || laptop.galleryImages?.[0]}
 
 
