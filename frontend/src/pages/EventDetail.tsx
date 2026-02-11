@@ -133,11 +133,7 @@ useEffect(() => {
                 {event.description}
               </p>
 
-              <div className="mt-8 p-6 bg-section-light rounded-xl border border-border">
-                <p className="text-sm text-muted-foreground">
-                  Photos will be updated with real images from this event.
-                </p>
-              </div>
+          
             </div>
           </div>
         </div>
